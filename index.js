@@ -1,45 +1,49 @@
+let word1 = "Anusha";
+let word2 = "Panuganti";
+let example = `${word1} 
+${word2}`
+;
+//console.log(sample);
+document.getElementById('example').innerText = example;
 
-//primitive/value types
-let name = 'Anu'; //string literal
-let age = 26; //Number Literal
-let isApproved = false; //boolean literal
-let firstName = undefined;   //if nothing is assigned bydefault returns undefined only
-let lastName = null;       //we use null to clear the value of the variable
+//destructure an arry
+let [firstname, middlename, lastname] = ["Bhanu","Chandra","Prasad"];
+lastname = "Prakash";
+console.log(lastname);
 
-//reference types
-//1.object
-let person = {
-    name: 'Anu',
-    age: 26,
+//destructuring objects
+const personalInfo = {
+    first : 'Anu',
+    last : 'Sweety',
 };
+const {first: fn, last: ln} = personalInfo;
+console.log(`${fn} ${ln}`);
 
-//dot notation
-person.name = 'Anusha';
+//object literal
+//function addressMaker(city, state) {
+//    const newAdress = {city, state};
+//    console.log(newAdress);
+//}
 
-//bracket notation
-person['name'] = 'Annu';
+//addressMaker('Austin','Texas');
 
-console.log(person.name);
-
-//2.array
-let selectedColors = ['red','blue']
-selectedColors[2] = 'white'
-selectedColors[3] = 3
-console.log(selectedColors.length)
-
-//3.Function
-
-//performing a task
-function greet(name) {
-    console.log("Hello " + name);
+//chaallenge
+function address(adress) {
+    const {city, state} = adress;
+    const newAd = {
+        city,
+        state,
+        country: 'United States'
+    };
+    console.log(`${newAd.city},${newAd.state},${newAd.country}`);
 }
 
-greet('John');
-greet('Anush');
+address({city:"Austin",state:"Texas"});
 
-//calculating a value
-function square(num) {
-    return num * num;
-}
+//spread operator
+let exmple1 = [1,2,3,4,5,6];
+let exmple2 = [...exmple1];
+exmple2.push(true);
+console.log(exmple2)
 
-console.log(square(5));   //here we have 2 function calls one is console.log and other is square function
+
